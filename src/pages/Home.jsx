@@ -9,10 +9,9 @@ export default function Home() {
     // the Home Component is my Main root  component so the CryptoProvider warps it out
     <CryptoProvider>
       <main
-        className="h-full  w-full flex flex-col first-letter: content-center items-center 
-           relative text-white font-nunito"
+        className="relative flex flex-col items-center content-center w-full h-full first-letter: font-nunito text-white"
       >
-        <div className="w-screen h-screen bg-gray-300 fixed -z-10" />
+        <div className="-z-10 fixed bg-gray-300 w-screen h-screen" />
         <Logo />
         <Navigation />
         <Outlet />

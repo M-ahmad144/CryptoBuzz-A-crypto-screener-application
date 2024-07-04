@@ -1,11 +1,12 @@
-import React from 'react';
-import TableComponents from '../components/TableComponent';
+import React from "react";
+import TableComponents from "../components/TableComponent";
+import Filters from "../components/Filters";
 
 // crypto component will hve the  tableComponent and filterComponent
-export default function Crypto () {
+export default function Crypto() {
   return (
-    <section className="w-[80%] h-full flex flex-col mt-16 mb-24 relative">
-
+    <section className="relative flex flex-col mt-16 mb-24 w-[80%] h-full">
+      <Filters />
       <TableComponents />
     </section>
   );
