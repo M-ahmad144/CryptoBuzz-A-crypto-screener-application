@@ -26,6 +26,7 @@ export default function TableComponent() {
                 className="border-gray-100 hover:bg-gray-200 border-b last:border-b-0 text-base text-center align-middle"
               >
                 <td className="flex items-center py-4 uppercase">
+                  {/* Svg Star Icon */}
                   <button className="border-0 bg-none cursor-pointer outline-0">
                     <svg
                       className="ml-1.5 w-[1.5rem] fill-gray-100 hover:fill-cyan"
@@ -45,18 +46,59 @@ export default function TableComponent() {
                       </defs>
                     </svg>
                   </button>
+                  {/* image of the coin */}
+                  <img
+                    className="mx-1.5 w-[1.5rem] h-[1.5rem]"
+                    src={data.image}
+                    alt="data.name"
+                  />
+                  <span>{data.symbol}</span>
                 </td>
                 <td className="py-4">{data.name}</td>
-                <td className="py-4">${data.current_price}</td>
+                <td className="py-4">
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "usd",
+                  }).format(data.current_price)}
+                </td>
                 <td className="py-4">{data.total_volume}</td>
                 <td className="py-4">
                   {data.market_cap_change_percentage_24h}%
                 </td>
-                <td className="py-4">
-                  {data.price_change_percentage_1h_in_currency}%
+
+                <td
+                  className={
+                    data.price_change_percentage_1h_in_currency > 0
+                      ? "text-green py-4"
+                      : "text-red py-4"
+                  }
+                >
+                  {Number(data.price_change_percentage_1h_in_currency).toFixed(
+                    2
+                  )}
                 </td>
-                <td className="py-4">{data.price_change_percentage_24h}%</td>
-                <td className="py-4">{data.price_change_percentage_7d}%</td>
+                <td
+                  className={
+                    data.price_change_percentage_24h_in_currency > 0
+                      ? "text-green py-4"
+                      : "text-red py-4"
+                  }
+                >
+                  {Number(data.price_change_percentage_24h_in_currency).toFixed(
+                    2
+                  )}
+                </td>
+                <td
+                  className={
+                    data.price_change_percentage_7d_in_currency > 0
+                      ? "text-green py-4"
+                      : "text-red py-4"
+                  }
+                >
+                  {Number(data.price_change_percentage_7d_in_currency).toFixed(
+                    2
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

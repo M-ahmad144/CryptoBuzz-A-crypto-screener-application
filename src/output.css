@@ -599,10 +599,6 @@ video {
   top: 1.5rem;
 }
 
-.bottom-1 {
-  bottom: 0.25rem;
-}
-
 .-z-10 {
   z-index: -10;
 }
@@ -615,16 +611,23 @@ video {
   margin: 0.625rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.mx-1\.5 {
+  margin-left: 0.375rem;
+  margin-right: 0.375rem;
 }
 
 .mb-24 {
   margin-bottom: 6rem;
-}
-
-.mt-9 {
-  margin-top: 2.25rem;
 }
 
 .ml-1 {
@@ -635,12 +638,24 @@ video {
   margin-left: 0.375rem;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
 .flex {
   display: flex;
 }
 
 .table {
   display: table;
+}
+
+.h-\[1\.5rem\] {
+  height: 1.5rem;
 }
 
 .h-full {
@@ -651,8 +666,16 @@ video {
   height: 100vh;
 }
 
+.w-\[1\.5rem\] {
+  width: 1.5rem;
+}
+
 .w-\[45\%\] {
   width: 45%;
+}
+
+.w-\[80\%\] {
+  width: 80%;
 }
 
 .w-full {
@@ -661,26 +684,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[80\%\] {
-  width: 80%;
-}
-
-.w-\[10\%\] {
-  width: 10%;
-}
-
-.w-\[1100\%\] {
-  width: 1100%;
-}
-
-.w-\[100\%\] {
-  width: 100%;
-}
-
-.w-\[1\.5rem\] {
-  width: 1.5rem;
 }
 
 .table-auto {
@@ -703,20 +706,16 @@ video {
   align-items: center;
 }
 
-.justify-center {
-  justify-content: center;
-}
-
 .justify-around {
   justify-content: space-around;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .border {
@@ -734,11 +733,6 @@ video {
 .border-cyan {
   --tw-border-opacity: 1;
   border-color: rgb(20 255 236 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(33 33 33 / var(--tw-border-opacity));
 }
 
 .border-gray-100 {
@@ -763,10 +757,6 @@ video {
 
 .bg-none {
   background-image: none;
-}
-
-.fill-green {
-  fill: #25da72;
 }
 
 .fill-gray-100 {
@@ -803,12 +793,12 @@ video {
   font-size: 24px;
 }
 
-.font-semibold {
-  font-weight: 600;
-}
-
 .font-medium {
   font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .uppercase {
@@ -839,9 +829,14 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-gray-800 {
+.text-green {
   --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
+  color: rgb(37 218 114 / var(--tw-text-opacity));
+}
+
+.text-red {
+  --tw-text-opacity: 1;
+  color: rgb(214 67 110 / var(--tw-text-opacity));
 }
 
 .outline-0 {
