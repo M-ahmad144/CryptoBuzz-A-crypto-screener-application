@@ -3,10 +3,10 @@ import {NavLink} from 'react-router-dom';
 
 export default function Navigation () {
   return (
-    <nav className="w-[40%] mt-16  flex justify-around align-middle border border-cyan  rounded-lg">
+    <nav className="w-[45%] mt-16  flex justify-around border border-cyan  rounded-lg">
       {/* NavLink provides us with a prop called isActive that indicates if the link is "active" or not by clicking it . */}
       <NavLink
-        //end  use to  match the wholw exact url
+        //end  use to  match the  exact url
         end
         to="/"
         className={({isActive}) => {
@@ -28,7 +28,7 @@ export default function Navigation () {
               `;
         }}
       >
-        trending
+        Trending
       </NavLink>
 
       <NavLink
@@ -40,7 +40,7 @@ export default function Navigation () {
               `;
         }}
       >
-        saved
+        Saved
       </NavLink>
     </nav>
   );

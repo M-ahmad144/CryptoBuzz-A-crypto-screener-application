@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client'; // Updated import for React 18
 import '../src/output.css'; // Importing the compiled Tailwind CSS file for styling
 import reportWebVitals from './reportWebVitals'; // Importing a utility to measure and report web vitals for performance
 import {
@@ -16,10 +16,14 @@ const router = createBrowserRouter([
   {
     path: '/', // Root path of the application
     element: <Home />, // Component to render when the path is matched
-    // use OutLet in Home jsx {parent component} to use childdren components 
+    // use Outlet in Home.jsx {parent component} to use children components
     children: [
       {
-        path: '/',
+        path: '/', // This will not be used, will be overwritten by the '/crypto' path
+        element: <Crypto />
+      },
+      {
+        path: '/crypto', // Correct path for the Crypto component
         element: <Crypto />
       },
       {
@@ -27,21 +31,23 @@ const router = createBrowserRouter([
         element: <Trending />
       },
       {
-        path: '/Saved',
+        path: '/saved',
         element: <Saved />
       }
-
     ]
   },
 ]);
 
+// Creating the root for the application
+const container = document.getElementById('root'); // Targeting the root DOM element to mount the React application
+const root = ReactDOM.createRoot(container);
+
 // Rendering the root component to the DOM
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     {/* Providing the router context to the application */}
     <RouterProvider router={router} />
-  </React.StrictMode>,
-  document.getElementById('root') // Targeting the root DOM element to mount the React application
+  </React.StrictMode>
 );
 
 // Enabling performance measurement for the application
