@@ -611,6 +611,10 @@ video {
   top: 1.5rem;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -677,6 +681,10 @@ video {
 
 .ml-4 {
   margin-left: 1rem;
+}
+
+.ml-5 {
+  margin-left: 1.25rem;
 }
 
 .flex {
@@ -995,6 +1003,11 @@ video {
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(50 50 50 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(128 128 128 / var(--tw-bg-opacity));
 }
 
 .hover\:fill-cyan:hover {

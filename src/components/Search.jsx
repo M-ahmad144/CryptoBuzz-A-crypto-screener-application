@@ -5,7 +5,7 @@ import debounce from "lodash.debounce";
 
 const SearchInput = ({ handleSearch }) => {
   const [searchText, setSearchText] = useState("");
-  let { searchData } = useContext(CryptoContext);
+  let { searchData, setCoinSearch, setSearchData } = useContext(CryptoContext);
 
   //handle input serach
   const handleInput = (e) => {
@@ -14,11 +14,17 @@ const SearchInput = ({ handleSearch }) => {
     setSearchText(query);
     handleSearch(query);
   };
+
+  const selectCoin = (coin) => {
+    setCoinSearch(coin);
+    setSearchText("");
+    setSearchData();
+  };
   return (
     <>
       <form className="relative flex items-center ml-7 w-96 font-nunito">
         <input
-          className="bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-gray-100 outline-0 required"
+          className="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-gray-100 outline-0 required"
           placeholder="Search here..."
           value={searchText}
           type="text"
@@ -37,9 +43,13 @@ const SearchInput = ({ handleSearch }) => {
 
       {searchText.length > 0 && (
         <ul className="top-11 right-0 absolute bg-gray-200 bg-opacity-60 backdrop-blur-md py-2 rounded w-96 h-96 overflow-x-hidden">
-          {searchData ? (
+          {searchData.length > 0 ? (
             searchData.map((coin) => (
-              <li className="flex items-center ml-4 py-2 cursor-pointer">
+              <li
+                onClick={() => selectCoin(coin.id)}
+                className="flex items-center hover:bg-gray-100 ml-4 py-2 rounded-lg cursor-pointer outline-0"
+                key={coin.id}
+              >
                 <img
                   className="mx-1.5 w-[1rem] h-[1rem]"
                   src={coin.thumb}
@@ -49,7 +59,9 @@ const SearchInput = ({ handleSearch }) => {
               </li>
             ))
           ) : (
-            <h2>Please wait...</h2>
+            <h2 className="flex justify-center py-2 text-gray-100">
+              Please wait...
+            </h2>
           )}
         </ul>
       )}
