@@ -21,3 +21,4 @@ fonts:
 ===============================================================
 Api key:
 	CG-ZFmpt57BMCw4YSkAqefcZw1Z
+	https://api.coingecko.com/api/v3/search?query=shib
