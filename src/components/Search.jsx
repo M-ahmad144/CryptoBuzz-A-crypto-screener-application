@@ -22,14 +22,14 @@ const SearchInput = ({ handleSearch }) => {
   };
 
   //handle the onImage click  seacrh button
-  const handleImageClick = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     handleSearch(searchText);
   };
   return (
     <>
       <form
-        onSubmit={handleImageClick}
+        onSubmit={handleSubmit}
         className="relative flex items-center ml-7 w-96 font-nunito"
       >
         <input
@@ -44,7 +44,7 @@ const SearchInput = ({ handleSearch }) => {
         <button
           className="right-1 absolute cursor-pointer"
           type="submit"
-          onClick={(e) => e.preventDefault()} // Prevent form submission
+          onClick={() => handleSubmit} // Prevent form submission
         >
           <img className="w-full h-auto" src={SearchIcon} alt="search" />
         </button>
