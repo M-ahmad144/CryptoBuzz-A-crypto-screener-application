@@ -14,15 +14,24 @@ const SearchInput = ({ handleSearch }) => {
     setSearchText(query);
     handleSearch(query);
   };
-
+  //set the selected coin
   const selectCoin = (coin) => {
     setCoinSearch(coin);
     setSearchText("");
     setSearchData();
   };
+
+  //handle the onImage click  seacrh button
+  const handleImageClick = (e) => {
+    e.preventDefault();
+    handleSearch(searchText);
+  };
   return (
     <>
-      <form className="relative flex items-center ml-7 w-96 font-nunito">
+      <form
+        onSubmit={handleImageClick}
+        className="relative flex items-center ml-7 w-96 font-nunito"
+      >
         <input
           className="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-gray-100 outline-0 required"
           placeholder="Search here..."
@@ -43,7 +52,7 @@ const SearchInput = ({ handleSearch }) => {
 
       {searchText.length > 0 && (
         <ul className="top-11 right-0 absolute bg-gray-200 bg-opacity-60 backdrop-blur-md py-2 rounded w-96 h-96 overflow-x-hidden">
-          {searchData.length > 0 ? (
+          {searchData ? (
             searchData.map((coin) => (
               <li
                 onClick={() => selectCoin(coin.id)}
@@ -59,9 +68,13 @@ const SearchInput = ({ handleSearch }) => {
               </li>
             ))
           ) : (
-            <h2 className="flex justify-center py-2 text-gray-100">
-              Please wait...
-            </h2>
+            <div className="flex justify-center items-center w-full h-full">
+              <div
+                className="border-4 border-cyan border-b-gray-200 rounded-full w-8 h-8 animate-spin"
+                role="status"
+              />
+              <span className="ml-2">searching...</span>
+            </div>
           )}
         </ul>
       )}
