@@ -60,7 +60,7 @@ const SearchInput = ({ handleSearch }) => {
                 <img
                   className="mx-1.5 w-[1rem] h-[1rem]"
                   src={coin.thumb}
-                  alt={coin.name} // Fixed alt attribute
+                  alt={coin.name}
                 />
                 <span>{coin.name}</span>
               </li>

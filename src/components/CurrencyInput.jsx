@@ -20,7 +20,7 @@ export default function CurrencyInput() {
         className="relative flex items-center mr-12 font-nunito"
       >
         <label
-          className="relative flex justify-center items-center mr-2 font-bold text-gray-400"
+          className="relative flex justify-center mr-2 px-2 font-bold text-center text-gray-400"
           htmlFor="currency"
         >
           currency:

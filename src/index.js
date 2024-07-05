@@ -22,10 +22,7 @@ const router = createBrowserRouter([
         path: '/', // This will not be used, will be overwritten by the '/crypto' path
         element: <Crypto />
       },
-      {
-        path: '/crypto', // Correct path for the Crypto component
-        element: <Crypto />
-      },
+
       {
         path: '/trending',
         element: <Trending />

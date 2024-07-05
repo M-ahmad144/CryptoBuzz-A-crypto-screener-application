@@ -56,10 +56,21 @@ export default function TableComponent() {
                 </td>
                 <td className="py-4">{data.name}</td>
                 <td className="py-4">
-                  {new Intl.NumberFormat("en-IN", {
-                    style: "currency",
-                    currency: currency,
-                  }).format(data.current_price)}
+                  {currency ? (
+                    <span>
+                      {Intl.NumberFormat.supportedLocalesOf(currency)
+                        ? new Intl.NumberFormat("en-IN", {
+                            style: "currency",
+                            currency: currency,
+                          }).format(data.current_price)
+                        : new Intl.NumberFormat("en-IN", {
+                            style: "currency",
+                            currency: "USD", // Default to USD if specified currency is not found
+                          }).format(data.current_price)}
+                    </span>
+                  ) : (
+                    <span>N/A</span>
+                  )}
                 </td>
                 <td className="py-4">{data.total_volume}</td>
                 <td className="py-4">
