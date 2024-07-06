@@ -14,7 +14,7 @@ export default function CurrencyInput() {
   };
 
   return (
-    <div className="flex mr-7">
+    <div className="flex ml-5">
       <form
         onSubmit={handleCurrencySubmit}
         className="relative flex items-center mr-12 font-nunito"

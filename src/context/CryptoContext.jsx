@@ -12,7 +12,8 @@ export const CryptoProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [sortBy, setSortBy] = useState("market_cap_desc");
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1000);
+  const [totalPages, setTotalPages] = useState(10);
+  const [perPage, setPerPage] = useState(10);
 
   // Fetch crypto data on mount
   const getCryptoData = async () => {
@@ -21,8 +22,8 @@ export const CryptoProvider = ({ children }) => {
         `https://api.coingecko.com/api/v3/coins/list`
       );
       const data = await response.json();
-      console.log(data);
       setTotalPages(data.length);
+      console.log(data);
     } catch (error) {
       console.error("Error fetching crypto data:", error);
     }
@@ -30,7 +31,7 @@ export const CryptoProvider = ({ children }) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=10&page=${page}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
       );
       const data = await response.json();
       setCryptoData(data);
@@ -64,7 +65,7 @@ export const CryptoProvider = ({ children }) => {
   // Fetch initial crypto data on component mount
   useLayoutEffect(() => {
     getCryptoData();
-  }, [coinSearch, currency, sortBy, page, totalPages]);
+  }, [coinSearch, currency, sortBy, page, totalPages, perPage]);
 
   return (
     // Provider component
@@ -85,6 +86,8 @@ export const CryptoProvider = ({ children }) => {
         page,
         totalPages,
         resetFuntion,
+        setPerPage,
+        perPage,
       }}
     >
       {children}

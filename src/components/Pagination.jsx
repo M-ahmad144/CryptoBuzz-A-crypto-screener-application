@@ -1,134 +1,181 @@
-import React, { useContext, useState, useEffect, useCallback } from "react";
-import pagination from "../assets/pagination-arrow.svg";
-import { CryptoContext } from "../context/CryptoContext";
-import debounce from "lodash.debounce";
-export default function Pagination() {
-  const { setPage, page, totalPages } = useContext(CryptoContext);
-  const lastPage = Math.ceil(totalPages / 10);
+import React, { useContext, useRef } from "react";
+import paginationArrow from "../assets/pagination-arrow.svg";
+import { CryptoContext } from "./../context/CryptoContext";
+import submitIcon from "../assets/submit-icon.svg";
 
-  const [debouncedPage, setDebouncedPage] = useState(page);
+const PerPage = () => {
+  const { setPerPage } = useContext(CryptoContext);
+  const inputRef = useRef(null);
 
-  const updatePage = useCallback(
-    debounce((newPage) => {
-      setPage(newPage);
-    }, 2000),
-    [] // Only create this debounced function once
-  );
-
-  useEffect(() => {
-    updatePage(debouncedPage);
-  }, [debouncedPage, updatePage]);
-
-  const handleNextClick = () => {
-    if (page < lastPage) {
-      setDebouncedPage((prevPage) => prevPage + 1);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let val = inputRef.current.value;
+    if (val !== 0) {
+      setPerPage(val);
+      inputRef.current.value = val;
     }
   };
 
-  const handlePrevClick = () => {
-    if (page > 1) {
-      setDebouncedPage((prevPage) => prevPage - 1);
+  return (
+    <form
+      className="relative flex items-center mr-12 font-nunito"
+      onSubmit={handleSubmit}
+    >
+      <label
+        htmlFor="perpage"
+        className="relative flex justify-center items-center mr-2 font-bold"
+      >
+        per page:{" "}
+      </label>
+      <input
+        type="number"
+        name="perpage"
+        min={1}
+        max={250}
+        ref={inputRef}
+        placeholder="10"
+        className="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-16 placeholder:text-gray-100 leading-4 outline-0 required"
+      />
+      <button type="submit" className="ml-1 cursor-pointer">
+        <img src={submitIcon} alt="submit" className="w-full h-auto" />
+      </button>
+    </form>
+  );
+};
+
+const Pagination = () => {
+  let { page, setPage, totalPages, perPage, cryptoData } =
+    useContext(CryptoContext);
+
+  const TotalNumber = Math.ceil(totalPages / perPage);
+
+  const next = () => {
+    if (page === TotalNumber) {
+      return null;
+    } else {
+      setPage(page + 1);
+    }
+  };
+
+  const prev = () => {
+    if (page === 1) {
+      return null;
+    } else {
+      setPage(page - 1);
     }
   };
 
   const multiStepNext = () => {
-    if (page + 3 >= lastPage) {
-      setDebouncedPage(lastPage);
+    if (page + 3 >= TotalNumber) {
+      setPage(TotalNumber - 1);
     } else {
-      setDebouncedPage((prevPage) => prevPage + 3);
+      setPage(page + 3);
     }
   };
 
   const multiStepPrev = () => {
     if (page - 3 <= 1) {
-      setDebouncedPage(1);
+      setPage(TotalNumber + 1);
     } else {
-      setDebouncedPage((prevPage) => prevPage - 3);
+      setPage(page - 2);
     }
   };
 
-  return (
-    <div className="flex items-center">
-      <ul className="flex items-center text-sm">
-        <li className="flex items-center">
-          <button
-            onClick={handlePrevClick}
-            className="w-8 hover:text-cyan outline-0"
-          >
-            <img
-              className="w-full h-auto rotate-180"
-              src={pagination}
-              alt="left"
-            />
-          </button>
-        </li>
-        {page === 1 ? null : (
-          <li>
-            <button
-              onClick={multiStepPrev}
-              className="flex justify-center items-center rounded-full w-8 h-8 text-lg hover:text-cyan outline-0"
-            >
-              ...
+  if (cryptoData && cryptoData.length >= perPage) {
+    return (
+      <div className="flex items-center">
+        <PerPage />
+        <ul className="flex justify-end items-center text-sm">
+          <li className="flex items-center">
+            <button className="w-8 hover:text-cyan outline-0" onClick={prev}>
+              <img
+                className="w-full h-auto rotate-180"
+                src={paginationArrow}
+                alt="left"
+              />
             </button>
           </li>
-        )}
-        {page > 1 && (
+
+          {page + 1 === TotalNumber || page === TotalNumber ? (
+            <li>
+              {" "}
+              <button
+                onClick={multiStepPrev}
+                className="flex justify-center items-center rounded-full w-8 h-8 text-lg hover:text-cyan ouline-0"
+              >
+                ...
+              </button>
+            </li>
+          ) : null}
+
+          {page - 1 !== 0 ? (
+            <li>
+              <button
+                onClick={prev}
+                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan ouline-0"
+              >
+                {" "}
+                {page - 1}{" "}
+              </button>
+            </li>
+          ) : null}
           <li>
             <button
-              onClick={handlePrevClick}
-              className="flex justify-center items-center bg-gray-200 mx-1 rounded-full w-8 h-8 hover:text-cyan outline-0"
+              disabled
+              className="flex justify-center items-center bg-cyan mx-1.5 rounded-full w-8 h-8 text-gray-300 ouline-0"
             >
-              {page - 1}
+              {page}
             </button>
           </li>
-        )}
-        <li>
-          <button
-            disabled
-            className="flex justify-center items-center bg-cyan mx-1 rounded-full w-8 h-8 text-gray-200 outline-0"
-          >
-            {page}
-          </button>
-        </li>
-        {page < lastPage && (
+
+          {page + 1 !== TotalNumber && page !== TotalNumber ? (
+            <li>
+              <button
+                onClick={next}
+                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan ouline-0"
+              >
+                {page + 1}
+              </button>
+            </li>
+          ) : null}
+
+          {page + 1 !== TotalNumber && page !== TotalNumber ? (
+            <li>
+              {" "}
+              <button
+                onClick={multiStepNext}
+                className="flex justify-center items-center rounded-full w-8 h-8 text-lg hover:text-cyan ouline-0"
+              >
+                ...
+              </button>
+            </li>
+          ) : null}
+
+          {page !== TotalNumber ? (
+            <li>
+              <button
+                onClick={() => setPage(TotalNumber)}
+                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan ouline-0"
+              >
+                {TotalNumber}
+              </button>
+            </li>
+          ) : null}
           <li>
-            <button
-              onClick={handleNextClick}
-              className="flex justify-center items-center bg-gray-200 mx-1 rounded-full w-8 h-8 hover:text-cyan outline-0"
-            >
-              {page + 1}
+            <button className="w-8 hover:text-cyan outline-0" onClick={next}>
+              <img
+                className="w-full h-auto"
+                src={paginationArrow}
+                alt="right"
+              />
             </button>
           </li>
-        )}
-        {page === lastPage ? null : (
-          <li>
-            <button
-              onClick={multiStepNext}
-              className="flex justify-center items-center rounded-full w-8 h-8 text-lg hover:text-cyan outline-0"
-            >
-              ...
-            </button>
-          </li>
-        )}
-        {page < lastPage && (
-          <li>
-            <button
-              onClick={() => setDebouncedPage(lastPage)}
-              className="flex justify-center items-center bg-gray-200 mx-1 px-2 rounded-full w-8 h-8 hover:text-cyan outline-0"
-            >
-              {lastPage}
-            </button>
-          </li>
-        )}
-        <li className="flex items-center">
-          <button
-            onClick={handleNextClick}
-            className="w-8 hover:text-cyan outline-0"
-          >
-            <img className="w-full h-auto" src={pagination} alt="right" />
-          </button>
-        </li>
-      </ul>
-    </div>
-  );
-}
+        </ul>
+      </div>
+    );
+  } else {
+    return null;
+  }
+};
+
+export default Pagination;
