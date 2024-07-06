@@ -1,35 +1,49 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import pagination from "../assets/pagination-arrow.svg";
-
+import { CryptoContext } from "../context/CryptoContext";
+import debounce from "lodash.debounce";
 export default function Pagination() {
-  const lastPage = 250;
-  const [currentPage, setCurrentPage] = useState(1);
+  const { setPage, page, totalPages } = useContext(CryptoContext);
+  const lastPage = Math.ceil(totalPages / 10);
+
+  const [debouncedPage, setDebouncedPage] = useState(page);
+
+  const updatePage = useCallback(
+    debounce((newPage) => {
+      setPage(newPage);
+    }, 2000),
+    [] // Only create this debounced function once
+  );
+
+  useEffect(() => {
+    updatePage(debouncedPage);
+  }, [debouncedPage, updatePage]);
 
   const handleNextClick = () => {
-    if (currentPage < lastPage) {
-      setCurrentPage((prevPage) => prevPage + 1);
+    if (page < lastPage) {
+      setDebouncedPage((prevPage) => prevPage + 1);
     }
   };
 
   const handlePrevClick = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
+    if (page > 1) {
+      setDebouncedPage((prevPage) => prevPage - 1);
     }
   };
 
   const multiStepNext = () => {
-    if (currentPage + 3 >= lastPage) {
-      setCurrentPage(lastPage);
+    if (page + 3 >= lastPage) {
+      setDebouncedPage(lastPage);
     } else {
-      setCurrentPage((prevPage) => prevPage + 3);
+      setDebouncedPage((prevPage) => prevPage + 3);
     }
   };
 
   const multiStepPrev = () => {
-    if (currentPage - 3 <= 1) {
-      setCurrentPage(1);
+    if (page - 3 <= 1) {
+      setDebouncedPage(1);
     } else {
-      setCurrentPage((prevPage) => prevPage - 3);
+      setDebouncedPage((prevPage) => prevPage - 3);
     }
   };
 
@@ -48,7 +62,7 @@ export default function Pagination() {
             />
           </button>
         </li>
-        {currentPage === 1 ? null : (
+        {page === 1 ? null : (
           <li>
             <button
               onClick={multiStepPrev}
@@ -58,14 +72,13 @@ export default function Pagination() {
             </button>
           </li>
         )}
-
-        {currentPage > 1 && (
+        {page > 1 && (
           <li>
             <button
               onClick={handlePrevClick}
               className="flex justify-center items-center bg-gray-200 mx-1 rounded-full w-8 h-8 hover:text-cyan outline-0"
             >
-              {currentPage - 1}
+              {page - 1}
             </button>
           </li>
         )}
@@ -74,20 +87,20 @@ export default function Pagination() {
             disabled
             className="flex justify-center items-center bg-cyan mx-1 rounded-full w-8 h-8 text-gray-200 outline-0"
           >
-            {currentPage}
+            {page}
           </button>
         </li>
-        {currentPage < lastPage && (
+        {page < lastPage && (
           <li>
             <button
               onClick={handleNextClick}
               className="flex justify-center items-center bg-gray-200 mx-1 rounded-full w-8 h-8 hover:text-cyan outline-0"
             >
-              {currentPage + 1}
+              {page + 1}
             </button>
           </li>
         )}
-        {currentPage === lastPage ? null : (
+        {page === lastPage ? null : (
           <li>
             <button
               onClick={multiStepNext}
@@ -97,11 +110,10 @@ export default function Pagination() {
             </button>
           </li>
         )}
-
-        {currentPage < lastPage && (
+        {page < lastPage && (
           <li>
             <button
-              onClick={() => setCurrentPage(lastPage)}
+              onClick={() => setDebouncedPage(lastPage)}
               className="flex justify-center items-center bg-gray-200 mx-1 px-2 rounded-full w-8 h-8 hover:text-cyan outline-0"
             >
               {lastPage}
