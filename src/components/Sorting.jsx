@@ -40,7 +40,7 @@ export default function Sorting() {
           <option value="liquidity_asc">Liquidity Ascending</option>
         </select>
         <img
-          className="top-1.5 right-0 absolute mr-1 w-[1.1rem] h-auto pointer-events-none"
+          className="top-1.5 right-0 absolute mr-1 w-[0.9rem] h-auto pointer-events-none"
           src={selectItem}
           alt="selectItem"
         />
