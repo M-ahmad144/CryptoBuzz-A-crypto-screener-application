@@ -18,12 +18,13 @@ export const CryptoProvider = ({ children }) => {
   // Fetch crypto data on mount
   const getCryptoData = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         `https://api.coingecko.com/api/v3/coins/list`
       );
       const data = await response.json();
       setTotalPages(data.length);
-      console.log(data);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching crypto data:", error);
     }
@@ -58,7 +59,8 @@ export const CryptoProvider = ({ children }) => {
   };
 
   const resetFuntion = () => {
-    setTotalPages(totalPages + 1);
+    setPage(1);
+    console.log("Resetting");
     setCoinSearch("");
   };
 
