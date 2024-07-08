@@ -19,7 +19,7 @@ export default function Sorting() {
           Sort by:
         </span>
         <select
-          className="bg-gray-200 mr-5 py-1 pr-10 pl-2 rounded-lg text-base text-gray-50 capitalize focus:outline-none leading-4 appearance-none"
+          className="bg-gray-200 mr-5 py-1 pr-10 pl-2 rounded-lg text-base text-gray-50 capitalize focus:outline-0 leading-4 appearance-none"
           name="sort"
           id="sortSelect"
           onClick={handelSort}

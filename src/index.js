@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Crypto from './pages/Crypto';
 import Trending from './pages/Trending';
 import Saved from './pages/Saved';
+import CryptoDataDetails from './components/CryptoDataDetails';
 
 // Creating a router instance with routes configuration
 const router = createBrowserRouter([
@@ -20,7 +21,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/', // This will not be used, will be overwritten by the '/crypto' path
-        element: <Crypto />
+        element: <Crypto />,
+        children: [
+          {
+            path: ":coinId",
+            element: <CryptoDataDetails /> // Component to render when the specific coin ID is matched
+          }
+        ]
+
       },
 
       {
@@ -41,10 +49,8 @@ const root = ReactDOM.createRoot(container);
 
 // Rendering the root component to the DOM
 root.render(
-  <React.StrictMode>
-    {/* Providing the router context to the application */}
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  // Directly providing the router context to the application
+  <RouterProvider router={router} />
 );
 
 // Enabling performance measurement for the application

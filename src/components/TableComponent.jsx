@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CryptoContext } from "../context/CryptoContext";
 import Pagination from "./Pagination";
+import { Link } from "react-router-dom";
 
 export default function TableComponent() {
   let { cryptoData, currency } = useContext(CryptoContext);
@@ -54,9 +55,17 @@ export default function TableComponent() {
                       src={data.image}
                       alt="data.name"
                     />
-                    <span>{data.symbol}</span>
+                    <span>
+                      <Link className="cursor-pointer" to={`/${data.id}`}>
+                        {data.symbol}
+                      </Link>
+                    </span>
                   </td>
-                  <td className="py-4">{data.name}</td>
+                  <td className="py-4">
+                    <Link className="cursor-pointer" to={`/${data.id}`}>
+                      {data.name}
+                    </Link>
+                  </td>
                   <td className="py-4">
                     {currency ? (
                       <span>
