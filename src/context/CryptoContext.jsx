@@ -59,7 +59,7 @@ export const CryptoProvider = ({ children }) => {
     }
   };
 
-  // Fetch coin data
+  // For Fetching the  coin data analysis results
   const getCoinData = async (coinid) => {
     setCoinData();
     try {

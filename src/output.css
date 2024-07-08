@@ -722,6 +722,18 @@ video {
   margin-top: 2.25rem;
 }
 
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.ml-0 {
+  margin-left: 0px;
+}
+
+.ml-0\.5 {
+  margin-left: 0.125rem;
+}
+
 .flex {
   display: flex;
 }
@@ -770,6 +782,10 @@ video {
   height: 100vh;
 }
 
+.h-\[3rem\] {
+  height: 3rem;
+}
+
 .w-16 {
   width: 4rem;
 }
@@ -816,6 +832,14 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-\[55\%\] {
+  width: 55%;
+}
+
+.w-\[3rem\] {
+  width: 3rem;
 }
 
 .table-auto {
@@ -948,6 +972,26 @@ video {
   background-color: rgb(33 33 33 / var(--tw-bg-opacity));
 }
 
+.bg-purple-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(192 132 252 / var(--tw-bg-opacity));
+}
+
+.bg-red {
+  --tw-bg-opacity: 1;
+  background-color: rgb(214 67 110 / var(--tw-bg-opacity));
+}
+
+.bg-rose-950 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(76 5 25 / var(--tw-bg-opacity));
+}
+
+.bg-green {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 218 114 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3;
 }
@@ -960,6 +1004,10 @@ video {
   --tw-bg-opacity: 0.75;
 }
 
+.bg-opacity-25 {
+  --tw-bg-opacity: 0.25;
+}
+
 .bg-none {
   background-image: none;
 }
@@ -970,6 +1018,14 @@ video {
 
 .fill-gray-100 {
   fill: #808080;
+}
+
+.fill-green {
+  fill: #25da72;
+}
+
+.fill-red {
+  fill: #d6436e;
 }
 
 .px-2 {
@@ -992,12 +1048,40 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .pl-2 {
   padding-left: 0.5rem;
 }
 
 .pr-10 {
   padding-right: 2.5rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pl-3 {
+  padding-left: 0.75rem;
 }
 
 .text-center {
@@ -1022,6 +1106,10 @@ video {
 
 .text-sm {
   font-size: 14px;
+}
+
+.text-xl {
+  font-size: 32px;
 }
 
 .font-bold {
@@ -1086,6 +1174,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.opacity-25 {
+  opacity: 0.25;
 }
 
 .outline-0 {
