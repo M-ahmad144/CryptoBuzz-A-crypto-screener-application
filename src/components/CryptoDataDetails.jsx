@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, useLayoutEffect } from "react";
 import ReactDOM from "react-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { CryptoContext } from "../context/CryptoContext";
+import Chart from "./Chart";
 
 const HighLowIndicator = ({ currentPrice, high, low }) => {
   const [green, setGreen] = useState();
@@ -63,7 +64,7 @@ export default function CryptoDataDetails() {
       <div
         // Prevent the click event from propagating to parent elements
         onClick={(e) => e.stopPropagation()}
-        className="relative flex items-center bg-gray-300 bg-opacity-75 rounded-lg w-[65%] h-[75%] text-white align-middle"
+        className="relative flex items-center bg-gray-300 bg-opacity-75 rounded-lg w-[67%] h-[75%] text-white align-middle"
       >
         {data ? (
           <div className="flex justify-between items-center py-4 w-full h-full">
@@ -325,8 +326,8 @@ export default function CryptoDataDetails() {
             </div>
 
             {/* right div */}
-            <div className="flex flex-col bg-rose-950 pl-3 w-[55%] h-full">
-              right
+            <div className="flex flex-col pl-3 w-[55%] h-full">
+              <Chart id={data.id} />
             </div>
           </div>
         ) : null}

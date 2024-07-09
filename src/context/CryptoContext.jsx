@@ -53,7 +53,6 @@ export const CryptoProvider = ({ children }) => {
       const data = await response.json();
       setSearchData(data.coins);
       setLoading(false);
-      console.log(data);
     } catch (error) {
       console.error("Error fetching search data:", error);
     }
@@ -69,7 +68,7 @@ export const CryptoProvider = ({ children }) => {
         .then((res) => res.json())
         .then((json) => json);
 
-      console.log("CoinData", data);
+      // console.log("CoinData", data);
       setCoinData(data);
     } catch (error) {
       console.log(error);
@@ -78,7 +77,7 @@ export const CryptoProvider = ({ children }) => {
 
   const resetFuntion = () => {
     setPage(1);
-    console.log("Resetting");
+
     setCoinSearch("");
   };
 
