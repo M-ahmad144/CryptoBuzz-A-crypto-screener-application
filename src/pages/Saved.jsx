@@ -62,13 +62,13 @@ const Saved = () => {
             <thead className="border-gray-100 border-b font-medium text-base text-gray-100 capitalize">
               <tr>
                 <th className="py-1">asset</th>
-                <th className="py-1">name</th>
+                <th className="hidden py-1 sm:table-cell">name</th>
                 <th className="py-1">price</th>
-                <th className="py-1">total volume</th>
-                <th className="py-1">market cap change</th>
-                <th className="py-1">1H</th>
-                <th className="py-1">24H</th>
-                <th className="py-1">7D</th>
+                <th className="hidden py-1 sm:table-cell">total volume</th>
+                <th className="hidden py-1 sm:table-cell">market cap change</th>
+                <th className="hidden py-1 sm:table-cell">1H</th>
+                <th className="hidden py-1 sm:table-cell">24H</th>
+                <th className="hidden py-1 sm:table-cell">7D</th>
               </tr>
             </thead>
             <tbody>
@@ -93,7 +93,8 @@ const Saved = () => {
                           </Link>
                         </span>
                       </td>
-                      <td className="py-4 cursor-pointer">
+
+                      <td className="hidden py-4 cursor-pointer sm:table-cell">
                         <Link to={`${data.id}`} className="cursor-pointer">
                           {data.name}
                         </Link>
@@ -106,13 +107,16 @@ const Saved = () => {
                           currency: currency,
                         }).format(data.current_price)}
                       </td>
-                      <td className="py-4">{data.total_volume}</td>
+                      <td className="hidden py-4 sm:table-cell">
+                        {data.total_volume}
+                      </td>
+
                       <td
-                        className={
+                        className={`py-2 ${
                           data.market_cap_change_percentage_24h < 0
-                            ? "py-4 text-red"
-                            : "py-4 text-green"
-                        }
+                            ? "text-green"
+                            : "text-red"
+                        } hidden sm:table-cell`}
                       >
                         {Number(data.market_cap_change_percentage_24h).toFixed(
                           2
@@ -120,11 +124,11 @@ const Saved = () => {
                         %
                       </td>
                       <td
-                        className={
-                          data.price_change_percentage_1h_in_currency < 0
-                            ? "py-4 text-red"
-                            : "py-4 text-green"
-                        }
+                        className={`py-2 ${
+                          data.price_change_percentage_1h_in_currency > 0
+                            ? "text-green"
+                            : "text-red"
+                        } hidden sm:table-cell`}
                       >
                         {Number(
                           data.price_change_percentage_1h_in_currency
@@ -132,11 +136,11 @@ const Saved = () => {
                         %
                       </td>
                       <td
-                        className={
-                          data.price_change_percentage_24h_in_currency < 0
-                            ? "py-4 text-red"
-                            : "py-4 text-green"
-                        }
+                        className={`py-2 ${
+                          data.price_change_percentage_24h_in_currency > 0
+                            ? "text-green"
+                            : "text-red"
+                        } hidden sm:table-cell`}
                       >
                         {Number(
                           data.price_change_percentage_24h_in_currency
@@ -144,11 +148,11 @@ const Saved = () => {
                         %
                       </td>
                       <td
-                        className={
-                          data.price_change_percentage_7d_in_currency < 0
-                            ? "py-4 text-red"
-                            : "py-4 text-green"
-                        }
+                        className={`py-2 ${
+                          data.price_change_percentage_7d_in_currency > 0
+                            ? "text-green"
+                            : "text-red"
+                        } hidden sm:table-cell`}
                       >
                         {Number(
                           data.price_change_percentage_7d_in_currency
