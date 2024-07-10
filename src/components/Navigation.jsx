@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 
 export default function Navigation() {
   return (
-    <nav className="flex justify-around border-cyan mt-16 border rounded-lg w-[45%]">
+    <nav className="flex flex-wrap justify-around border-cyan mx-auto mt-16 border rounded-lg w-[90%] sm:w-[80%] md:w-[60%] lg:w-[45%]">
       {/* NavLink provides us with a prop called isActive that indicates if the link is "active" or not by clicking it . */}
       <NavLink
         //end  use to  match the  exact url
         end
         to="/"
         className={({ isActive }) => {
-          return `w-full  text-center font-nunito text-base m-2.5
+          return `w-full sm:w-auto text-center font-nunito text-sm sm:text-base m-1.5 sm:m-2.5
                         ${
                           isActive
                             ? "bg-cyan text-gray-300 rounded-lg"
@@ -26,7 +26,7 @@ export default function Navigation() {
       <NavLink
         to="/trending"
         className={({ isActive }) => {
-          return `w-full  text-center font-nunito text-base m-2.5
+          return `w-full sm:w-auto text-center font-nunito text-sm sm:text-base m-1.5 sm:m-2.5
                         ${
                           isActive
                             ? "bg-cyan text-gray-300 rounded-lg"
@@ -42,7 +42,7 @@ export default function Navigation() {
       <NavLink
         to="/saved"
         className={({ isActive }) => {
-          return `w-full  text-center font-nunito text-base m-2.5
+          return `w-full sm:w-auto text-center font-nunito text-sm sm:text-base m-1.5 sm:m-2.5
                         ${
                           isActive
                             ? "bg-cyan text-gray-300 rounded-lg"
