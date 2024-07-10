@@ -14,6 +14,7 @@ const Trending = () => {
           trendData.map((coin) => (
             <TrendingCoin key={data.coin_id} data={coin.item} />
           ))}
+        {/* reset button */}
         <button
           className="right-0 ml-4 w-[2rem] hover:scale-110 -top-10 absolute transition-all transition-ease"
           onClick={resetTrendingResult}

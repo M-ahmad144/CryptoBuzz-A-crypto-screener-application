@@ -10,12 +10,12 @@ const TrendingCoin = ({ data }) => {
 
   return (
     <div
-      className="relative bg-gray-200 hover:bg-gray-100 hover:bg-opacity-40 mb-12 last:mb-0 p-4 rounded-lg w-[40%] cursor-pointer"
+      className="relative bg-gray-200 hover:bg-gray-100 hover:bg-opacity-40 mb-12 last:mb-0 p-4 rounded-lg w-full md:w-[40%] cursor-pointer"
       onClick={() => getCoinDetails(data.id)}
     >
       {data ? (
         <>
-          <h3 className="flex items-center my-0.5 txt-base">
+          <h3 className="flex items-center my-0.5 text-base">
             <span className="text-gray-100 capitalize">name:&nbsp;</span>
             <span className="text-cyan">{data.name}</span>
             <img
@@ -25,13 +25,13 @@ const TrendingCoin = ({ data }) => {
             />
           </h3>
 
-          <h3 className="flex items-center my-0.5 txt-base">
+          <h3 className="flex items-center my-0.5 text-base">
             <span className="text-gray-100 capitalize">
               market cap rank:&nbsp;
             </span>
             <span className="text-cyan">{data.market_cap_rank}</span>
           </h3>
-          <h3 className="flex items-center my-0.5 txt-base">
+          <h3 className="flex items-center my-0.5 text-base">
             <span className="text-gray-100 capitalize">
               price (in btc):&nbsp;
             </span>
@@ -44,7 +44,7 @@ const TrendingCoin = ({ data }) => {
             </span>
           </h3>
 
-          <h3 className="flex items-center my-0.5 txt-base">
+          <h3 className="flex items-center my-0.5 text-base">
             <span className="text-gray-100 capitalize">score:&nbsp;</span>
             <span className="text-cyan">{data.score}</span>
           </h3>
@@ -52,7 +52,7 @@ const TrendingCoin = ({ data }) => {
           <img
             src={data.large}
             alt={data.name}
-            className="top-2/4 -right-12 absolute rounded-full w-[35%] h-auto -translate-y-2/4"
+            className="top-1/2 -right-6 md:-right-12 absolute rounded-full w-[30%] md:w-[35%] h-auto transform -translate-y-1/2"
           />
         </>
       ) : (

@@ -331,8 +331,8 @@ export default function CryptoDataDetails() {
               <Chart id={data.id} />
               {/* ranks */}
               <div className="flex flex-col mt-4">
-                <h1 className="mt-5 py-3 text-4xl text-cyan">
-                  <span className="mr-1 font-nunito font-semibold text-3xl text-gray-100 capitalize">
+                <h1 className="mt-10 ml-7 py-3 text-4xl text-cyan">
+                  <span className="font-nunito font-semibold text-3xl text-gray-100 capitalize">
                     market cap rank:{" "}
                   </span>{" "}
                   {data.market_cap_rank}{" "}
@@ -457,7 +457,15 @@ export default function CryptoDataDetails() {
               </div>
             </div>
           </div>
-        ) : null}
+        ) : (
+          <div className="flex justify-center items-center w-full min-h-[50vh]">
+            <div
+              className="border-4 border-cyan border-b-gray-200 border-solid rounded-full w-8 h-8 animate-spin"
+              role="status"
+            />
+            <span className="ml-2 text-base">please wait...</span>
+          </div>
+        )}
       </div>
     </div>,
     modalRoot // Append the modal to the element with id 'model'

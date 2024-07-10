@@ -18,17 +18,19 @@ export const CryptoProvider = ({ children }) => {
 
   // Fetch crypto data on mount
   const getCryptoData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/list`
-      );
-      const data = await response.json();
-      setTotalPages(data.length);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching crypto data:", error);
-    }
+    setCryptoData();
+    setTotalPages(1400);
+    // try {
+    //   setLoading(true);
+    //   const response = await fetch(
+    //     `https://api.coingecko.com/api/v3/coins/list`
+    //   );
+    //   const data = await response.json();
+    //   setTotalPages(data.length);
+    //   setLoading(false);
+    // } catch (error) {
+    //   console.error("Error fetching crypto data:", error);
+    // }
 
     try {
       setLoading(true);

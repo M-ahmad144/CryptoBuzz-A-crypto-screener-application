@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     // use Outlet in Home.jsx {parent component} to use children components
     children: [
       {
-        path: '/', // This will not be used, will be overwritten by the '/crypto' path
+        path: '/',
         element: <Crypto />,
         children: [
           {
@@ -43,7 +43,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/saved',
-        element: <Saved />
+        element: <Saved />,
+        children: [
+          {
+            path: ":coinId",
+            element: <CryptoDataDetails /> // Component to render when the specific coin ID is matched
+          }
+        ]
       }
     ]
   },
