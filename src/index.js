@@ -33,7 +33,13 @@ const router = createBrowserRouter([
 
       {
         path: '/trending',
-        element: <Trending />
+        element: <Trending />,
+        children: [
+          {
+            path: ":coinId",
+            element: <CryptoDataDetails /> // Component to render when the specific coin ID is matched
+          }
+        ]
       },
       {
         path: '/saved',

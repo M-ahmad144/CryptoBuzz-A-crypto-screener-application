@@ -92,7 +92,7 @@ const Chart = ({ id }) => {
 
       // Set chartData state with converted data
       setChartData(convertedDataForChart);
-      console.log("converted-data", convertedDataForChart); // Log converted data
+      // console.log("converted-data", convertedDataForChart); // Log converted data
     } catch (error) {
       console.error("Error fetching chart data:", error); // Log error if fetching fails
     }
