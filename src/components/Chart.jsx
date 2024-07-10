@@ -112,7 +112,7 @@ const Chart = ({ id }) => {
         currency={currency}
         type={type}
       />{" "}
-      <div className="flex">
+      <div class="flex flex-wrap md:flex-nowrap">
         <button
           className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
             type === "prices"

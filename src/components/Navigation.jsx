@@ -10,10 +10,10 @@ export default function Navigation() {
         end
         to="/"
         className={({ isActive }) => {
-          return `w-full sm:w-auto text-center font-nunito text-sm sm:text-base m-1.5 sm:m-2.5
+          return `w-full sm:w-auto text-center font-nunito text-sm sm:text-base px-5 sm:m-2.5
                         ${
                           isActive
-                            ? "bg-cyan text-gray-300 rounded-lg"
+                            ? "bg-cyan text-gray-300 rounded-md"
                             : "bg-gray-200 rounded-lg text-gray-100  hover:text-cyan  active:bg-cyan active:text-gray-300 cursor-pointer border-0   font-semibold  capitalize"
                         }
                        
@@ -26,10 +26,10 @@ export default function Navigation() {
       <NavLink
         to="/trending"
         className={({ isActive }) => {
-          return `w-full sm:w-auto text-center font-nunito text-sm sm:text-base m-1.5 sm:m-2.5
+          return `w-full sm:w-auto text-center font-nunito px-5 text-sm sm:text-base m-1.5 sm:m-2.5
                         ${
                           isActive
-                            ? "bg-cyan text-gray-300 rounded-lg"
+                            ? "bg-cyan text-gray-300 rounded-md"
                             : "bg-gray-200 rounded-lg text-gray-100  hover:text-cyan  active:bg-cyan active:text-gray-300 cursor-pointer border-0   font-semibold  capitalize"
                         }
                        
@@ -42,10 +42,10 @@ export default function Navigation() {
       <NavLink
         to="/saved"
         className={({ isActive }) => {
-          return `w-full sm:w-auto text-center font-nunito text-sm sm:text-base m-1.5 sm:m-2.5
+          return `w-full sm:w-auto text-center  px-5 font-nunito text-sm sm:text-base m-1.5 sm:m-2.5
                         ${
                           isActive
-                            ? "bg-cyan text-gray-300 rounded-lg"
+                            ? "bg-cyan text-gray-300 rounded-md"
                             : "bg-gray-200 rounded-lg text-gray-100  hover:text-cyan  active:bg-cyan active:text-gray-300 cursor-pointer border-0   font-semibold  capitalize"
                         }
                        

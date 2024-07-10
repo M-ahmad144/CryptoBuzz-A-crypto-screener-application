@@ -70,9 +70,9 @@ export default function CryptoDataDetails() {
           <div className="flex justify-between items-center p-4 w-full h-full">
             {/* left div */}
 
-            <div className="flex flex-col m-3 w-[45%] h-full">
+            <div className="flex flex-col m-3 w-full md:w-[45%] h-full">
               {/* image ,name ,symbol */}
-              <div className="flex items-center w-full">
+              <div className="flex md:flex-row flex-col md:items-center w-full">
                 <img
                   className="flex mx-1.5 w-[3rem] h-[3rem]"
                   src={data.image.large}
@@ -326,11 +326,11 @@ export default function CryptoDataDetails() {
             </div>
 
             {/* right div */}
-            <div className="flex flex-col pl-3 w-[55%] h-full">
+            <div class="flex flex-col mt-2 md:mt-0 pl-0 md:pl-4 w-full md:w-[55%] h-[60vh]">
               {/*chart component  */}
               <Chart id={data.id} />
               {/* ranks */}
-              <div className="flex flex-col mt-4">
+              <div class="flex flex-col mt-4">
                 <h1 className="mt-10 ml-7 py-3 text-4xl text-cyan">
                   <span className="font-nunito font-semibold text-3xl text-gray-100 capitalize">
                     market cap rank:{" "}
@@ -339,7 +339,7 @@ export default function CryptoDataDetails() {
                 </h1>
               </div>
               {/* social media links */}
-              <div className="right-8 bottom-8 absolute flex items-center">
+              <div class="right-4 sm:right-8 bottom-4 md:bottom-8 absolute flex md:flex-row flex-col items-center">
                 {data.links.repos_url.github[0] && (
                   <a
                     className="px-1 text-lg"

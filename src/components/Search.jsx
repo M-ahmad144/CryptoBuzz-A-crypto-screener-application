@@ -30,10 +30,10 @@ const SearchInput = ({ handleSearch }) => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="relative flex items-center ml-7 w-96 font-nunito"
+        className="relative flex items-center w-full font-nunito"
       >
         <input
-          className="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-gray-100 outline-0 required"
+          class="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-base placeholder:text-gray-100 outline-0 required"
           placeholder="Search here..."
           value={searchText}
           type="text"
@@ -41,18 +41,18 @@ const SearchInput = ({ handleSearch }) => {
           onChange={handleInput}
         />
 
-        <button className="right-1 absolute cursor-pointer" type="submit">
-          <img className="w-full h-auto" src={SearchIcon} alt="search" />
+        <button className="right-2 absolute cursor-pointer" type="submit">
+          <img className="w-5 h-5" src={SearchIcon} alt="search" />
         </button>
       </form>
 
       {searchText.length > 0 && (
-        <ul className="top-11 right-0 absolute bg-gray-200 bg-opacity-60 backdrop-blur-md scrollbar-thumb-gray-100 py-2 rounded w-96 h-96 overflow-x-hidden scrollbar-thin scrollbar-track-gray-200">
+        <ul className="top-12 right-0 left-0 absolute bg-gray-200 bg-opacity-80 backdrop-blur-md mx-2 sm:mx-0 scrollbar-thumb-gray-400 py-2 rounded w-[calc(100%-1rem)] sm:max-w-md h-48 overflow-y-auto scrollbar-thin scrollbar-track-gray-300">
           {searchData && !loading ? (
             searchData.map((coin) => (
               <li
                 onClick={() => selectCoin(coin.id)}
-                className="flex items-center hover:bg-gray-100 ml-4 py-2 rounded-lg cursor-pointer outline-0"
+                className="flex items-center hover:bg-gray-300 px-4 py-2 rounded-lg cursor-pointer outline-none"
                 key={coin.id}
               >
                 <img
@@ -60,13 +60,13 @@ const SearchInput = ({ handleSearch }) => {
                   src={coin.thumb}
                   alt={coin.name}
                 />
-                <span>{coin.name}</span>
+                <span className="text-sm">{coin.name}</span>
               </li>
             ))
           ) : (
             <div className="flex justify-center items-center w-full h-full">
-              <div className="border-4 border-cyan border-b-gray-200 rounded-full w-8 h-8 animate-spin"></div>
-              <span className="ml-2">Searching...</span>
+              <div className="border-4 border-cyan border-b-gray-300 rounded-full w-8 h-8 animate-spin"></div>
+              <span className="ml-2 text-sm">Searching...</span>
             </div>
           )}
         </ul>
@@ -81,10 +81,10 @@ const Search = () => {
   // Debounced function for fetching search results
   const debouncedSearch = debounce((val) => {
     getSearchResult(val);
-  }, 5000);
+  }, 500);
 
   return (
-    <div className="relative">
+    <div className="relative mx-auto w-full max-w-xs sm:max-w-md">
       <SearchInput handleSearch={debouncedSearch} />
     </div>
   );
