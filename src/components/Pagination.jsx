@@ -87,8 +87,12 @@ const Pagination = () => {
     return (
       <div className="flex justify-between items-center">
         <PerPage />
+<<<<<<< HEAD
 
         <ul class="flex justify-end items-center mt-4 sm:mt-0 text-sm">
+=======
+        <ul className="flex items-center text-xs md:text-sm">
+>>>>>>> 284657afbc48b149bdf7534333edc7b905bf78a4
           <li>
             <button className="w-6 hover:text-cyan outline-0" onClick={prev}>
               <img

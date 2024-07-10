@@ -30,10 +30,17 @@ const SearchInput = ({ handleSearch }) => {
     <>
       <form
         onSubmit={handleSubmit}
+<<<<<<< HEAD
         className="relative flex items-center w-full font-nunito"
       >
         <input
           class="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-base placeholder:text-gray-100 outline-0 required"
+=======
+        className="relative flex items-center w-full max-w-xs sm:max-w-md font-nunito"
+      >
+        <input
+          className="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-gray-400 outline-none"
+>>>>>>> 284657afbc48b149bdf7534333edc7b905bf78a4
           placeholder="Search here..."
           value={searchText}
           type="text"
