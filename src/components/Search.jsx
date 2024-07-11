@@ -33,7 +33,7 @@ const SearchInput = ({ handleSearch }) => {
         className="relative flex items-center ml-7 w-96 font-nunito"
       >
         <input
-          className="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-gray-100 outline-0 required"
+          className="focus:border-cyan-500 bg-gray-200 pl-2 border border-transparent rounded w-full h-5 placeholder:text-gray-500 outline-none"
           placeholder="Search here..."
           value={searchText}
           type="text"

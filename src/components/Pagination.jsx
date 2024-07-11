@@ -18,7 +18,7 @@ const PerPage = () => {
 
   return (
     <form
-      className="relative flex items-center mr-12 font-nunito"
+      className="relative md:flex items-center hidden mr-12 font-nunito"
       onSubmit={handleSubmit}
     >
       <label
@@ -83,7 +83,7 @@ const Pagination = () => {
 
   if (cryptoData && cryptoData.length >= perPage) {
     return (
-      <div className="flex items-center">
+      <div className="md:flex items-center hidden">
         <PerPage />
         <ul className="flex justify-end items-center text-sm">
           <li className="flex items-center">
@@ -101,7 +101,7 @@ const Pagination = () => {
               {" "}
               <button
                 onClick={multiStepPrev}
-                className="flex justify-center items-center rounded-full w-8 h-8 text-lg hover:text-cyan ouline-0"
+                className="flex justify-center items-center rounded-full w-8 h-8 text-lg hover:text-cyan outline-0"
               >
                 ...
               </button>
@@ -112,7 +112,7 @@ const Pagination = () => {
             <li>
               <button
                 onClick={prev}
-                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan ouline-0"
+                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan outline-0"
               >
                 {" "}
                 {page - 1}{" "}
@@ -122,7 +122,7 @@ const Pagination = () => {
           <li>
             <button
               disabled
-              className="flex justify-center items-center bg-cyan mx-1.5 rounded-full w-8 h-8 text-gray-300 ouline-0"
+              className="flex justify-center items-center bg-cyan mx-1.5 rounded-full w-8 h-8 text-gray-300 outline-0"
             >
               {page}
             </button>
@@ -132,7 +132,7 @@ const Pagination = () => {
             <li>
               <button
                 onClick={next}
-                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan ouline-0"
+                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan outline-0"
               >
                 {page + 1}
               </button>
@@ -144,7 +144,7 @@ const Pagination = () => {
               {" "}
               <button
                 onClick={multiStepNext}
-                className="flex justify-center items-center rounded-full w-8 h-8 text-lg hover:text-cyan ouline-0"
+                className="flex justify-center items-center rounded-full w-8 h-8 text-lg hover:text-cyan outline-0"
               >
                 ...
               </button>
@@ -155,7 +155,7 @@ const Pagination = () => {
             <li>
               <button
                 onClick={() => setPage(TotalNumber)}
-                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan ouline-0"
+                className="flex justify-center items-center bg-gray-200 mx-1.5 rounded-full w-8 h-8 hover:text-cyan outline-0"
               >
                 {TotalNumber}
               </button>
