@@ -30,10 +30,10 @@ const SearchInput = ({ handleSearch }) => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="relative flex items-center w-full font-nunito"
+        className="relative flex items-center ml-7 w-96 font-nunito"
       >
         <input
-          className="focus:border-cyan bg-gray-200 py-2 pr-10 pl-3 border border-transparent rounded-full w-full md:max-w-7xl xl:max-w-xl placeholder:text-gray-400 full outline-none"
+          className="focus:border-cyan bg-gray-200 pl-2 border border-transparent rounded w-full placeholder:text-gray-100 outline-0 required"
           placeholder="Search here..."
           value={searchText}
           type="text"
@@ -41,13 +41,13 @@ const SearchInput = ({ handleSearch }) => {
           onChange={handleInput}
         />
 
-        <button className="right-2 absolute cursor-pointer" type="submit">
-          <img className="w-5 h-5" src={SearchIcon} alt="search" />
+        <button className="right-1 absolute cursor-pointer" type="submit">
+          <img className="w-full h-auto" src={SearchIcon} alt="search" />
         </button>
       </form>
 
       {searchText.length > 0 && (
-        <ul className="top-12 right-0 left-0 absolute bg-gray-200 bg-opacity-80 backdrop-blur-md mx-2 sm:mx-0 scrollbar-thumb-gray-400 py-2 rounded w-[calc(100%-1rem)] sm:max-w-md h-48 overflow-y-auto scrollbar-thin scrollbar-track-gray-300">
+        <ul className="top-11 right-0 absolute bg-gray-200 bg-opacity-60 backdrop-blur-md scrollbar-thumb-gray-100 py-2 rounded w-96 h-96 overflow-x-hidden scrollbar-thin scrollbar-track-gray-200">
           {searchData && !loading ? (
             searchData.map((coin) => (
               <li

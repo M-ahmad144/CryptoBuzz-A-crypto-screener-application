@@ -12,14 +12,12 @@ export default function Sorting() {
   return (
     <>
       <label
-        className="relative flex items-center content-center"
+        className="relative flex justify-center items-center"
         htmlFor="sortSelect"
       >
-        <span className="mr-2 font-bold font-nunito text-gray-400">
-          Sort by:
-        </span>
+        <span className="font-bold">Sort by:</span>
         <select
-          className="bg-gray-200 mr-5 py-1 pr-10 pl-2 rounded-lg text-base text-gray-50 capitalize focus:outline-0 leading-4 appearance-none"
+          className="bg-gray-200 py-0.5 pr-10 pl-2 rounded text-base capitalize leading-4 focus:outline-0"
           name="sort"
           id="sortSelect"
           onClick={handelSort}
@@ -40,14 +38,14 @@ export default function Sorting() {
           <option value="liquidity_asc">Liquidity Ascending</option>
         </select>
         <img
-          className="top-1.5 right-5 absolute mr-1 w-[0.9rem] h-auto pointer-events-none"
+          className="top-2 right-1 absolute w-[1rem] h-auto pointer-events-none"
           src={selectItem}
           alt="selectItem"
         />
       </label>
       <div className="flex justify-center items-center align-middle">
         <button
-          className="mr-4 w-[2rem] hover:scale-110 relative transition-all transition-ease"
+          className="ml-4 w-[2rem] hover:scale-110 relative transition-all transition-ease"
           onClick={resetFuntion}
         >
           <svg

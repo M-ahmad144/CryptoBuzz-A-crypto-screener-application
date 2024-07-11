@@ -20,7 +20,7 @@ export default function CurrencyInput() {
         className="relative flex items-center mr-12 font-nunito"
       >
         <label
-          className="relative flex justify-center mr-2 px-2 font-bold text-center text-gray-400"
+          className="relative flex justify-center items-center mr-2 font-bold"
           htmlFor="currency"
         >
           currency:
@@ -33,9 +33,8 @@ export default function CurrencyInput() {
           type="text"
           name="currency"
         />
-
-        <button className="ml-1 cursor-pointer" type="submit">
-          <img className="w-full h-auto" src={submitIcon} alt="submit" />
+        <button type="submit" className="ml-1 cursor-pointer">
+          <img src={submitIcon} alt="submit" className="w-full h-auto" />
         </button>
       </form>
     </div>
