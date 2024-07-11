@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import {
   createContext,
   useContext,
@@ -19,7 +18,6 @@ export const StorageProvider = ({ children }) => {
   let { currency, sortBy } = useContext(CryptoContext);
 
   const saveCoin = (coinId) => {
-    // Retrieve the 'coins' item from localStorage and parse it to a JavaScript array.
     let oldCoins = JSON.parse(localStorage.getItem("coins"));
 
     // Check if the coinId already exists in the array.

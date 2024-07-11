@@ -39,7 +39,7 @@ export const CryptoProvider = ({ children }) => {
       );
       const data = await response.json();
       setCryptoData(data);
-      console.log("datata", data);
+
       setLoading(false);
     } catch (error) {
       console.error("Error fetching crypto data:", error);

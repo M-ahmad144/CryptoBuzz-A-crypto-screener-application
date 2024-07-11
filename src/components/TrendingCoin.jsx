@@ -15,8 +15,9 @@ const TrendingCoin = ({ data }) => {
     >
       {data ? (
         <>
+          {/* name and image */}
           <h3 className="flex flex-wrap items-center my-1 text-sm sm:text-base">
-            <span className="text-gray-700 capitalize">name:&nbsp;</span>
+            <span className="text-gray-200 capitalize">name:&nbsp;</span>
             <span className="text-cyan">{data.name}</span>
             <img
               src={data.small}
@@ -24,15 +25,16 @@ const TrendingCoin = ({ data }) => {
               className="ml-2 rounded-full w-6 sm:w-8 h-6 sm:h-8"
             />
           </h3>
-
+          {/* mark up rank */}
           <h3 className="flex flex-wrap items-center my-1 text-sm sm:text-base">
-            <span className="text-gray-700 capitalize">
+            <span className="text-gray-200 capitalize">
               market cap rank:&nbsp;
             </span>
             <span className="text-cyan">{data.market_cap_rank}</span>
           </h3>
+          {/* price in btc */}
           <h3 className="flex flex-wrap items-center my-1 text-sm sm:text-base">
-            <span className="text-gray-700 capitalize">
+            <span className="text-gray-200 capitalize">
               price (in btc):&nbsp;
             </span>
             <span className="text-cyan">
@@ -43,12 +45,12 @@ const TrendingCoin = ({ data }) => {
               }).format(data.price_btc)}
             </span>
           </h3>
-
+          {/* score */}
           <h3 className="flex flex-wrap items-center my-1 text-sm sm:text-base">
-            <span className="text-gray-700 capitalize">score:&nbsp;</span>
+            <span className="text-gray-200 capitalize">score:&nbsp;</span>
             <span className="text-cyan">{data.score}</span>
           </h3>
-
+          {/* large image */}
           <img
             src={data.large}
             alt={data.name}
