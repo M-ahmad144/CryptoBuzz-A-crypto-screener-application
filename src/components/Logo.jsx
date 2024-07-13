@@ -9,8 +9,12 @@ export default function Logo() {
         to="/"
         className="top-[1.5rem] left-[1.5rem] absolute flex items-center text-cyan text-lg [text-decoration:none]"
       >
-        <img src={logoSvg} alt="CryptoBuzz" />
-        <span className="flex capitalize">CryptoBuzz</span>
+        <img
+          className="w-8 sm:w-10 h-8 sm:h-10"
+          src={logoSvg}
+          alt="CryptoBuzz"
+        />
+        <span className="ml-2 text-sm sm:text-lg capitalize">CryptoBuzz</span>
       </Link>
     </div>
   );

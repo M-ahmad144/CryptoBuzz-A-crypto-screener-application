@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Navigation() {
   return (
-    <nav className="flex flex-wrap justify-around border-cyan mx-auto mt-16 border rounded-lg w-[90%] sm:w-[80%] md:w-[60%] lg:w-[45%]">
+    <nav className="flex flex-wrap justify-around border-cyan mx-auto mt-16 sm:mt-28 min:pt-7 border rounded-lg w-[90%] sm:w-[80%] md:w-[60%] lg:w-[45%]">
       {/* NavLink provides us with a prop called isActive that indicates if the link is "active" or not by clicking it . */}
       <NavLink
         //end  use to  match the  exact url

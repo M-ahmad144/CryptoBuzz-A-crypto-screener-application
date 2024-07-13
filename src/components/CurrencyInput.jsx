@@ -14,10 +14,10 @@ export default function CurrencyInput() {
   };
 
   return (
-    <div className="flex ml-5">
+    <div className="flex justify-end sm:justify-start">
       <form
         onSubmit={handleCurrencySubmit}
-        className="relative flex items-center mr-12 font-nunito"
+        className="relative flex items-center mr-12 ml-5 sm:ml-0 font-nunito"
       >
         <label
           className="relative flex justify-center items-center mr-2 font-bold"

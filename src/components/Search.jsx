@@ -27,10 +27,10 @@ const SearchInput = ({ handleSearch }) => {
   };
 
   return (
-    <>
+    <div className="sm:w-[100%]">
       <form
         onSubmit={handleSubmit}
-        className="relative flex items-center ml-7 w-96 font-nunito"
+        className="relative flex items-center ml-7 w-full sm:w-96 font-nunito"
       >
         <input
           className="focus:border-cyan-500 bg-gray-200 pl-2 border border-transparent rounded w-full h-5 placeholder:text-gray-500 outline-none"
@@ -47,7 +47,7 @@ const SearchInput = ({ handleSearch }) => {
       </form>
 
       {searchText.length > 0 && (
-        <ul className="top-11 right-0 absolute bg-gray-200 bg-opacity-60 backdrop-blur-md scrollbar-thumb-gray-100 py-2 rounded w-96 h-96 overflow-x-hidden scrollbar-thin scrollbar-track-gray-200">
+        <ul className="top-11 right-0 absolute bg-gray-200 bg-opacity-60 backdrop-blur-md scrollbar-thumb-gray-100 py-2 rounded w-full sm:w-96 h-96 overflow-x-hidden scrollbar-thin scrollbar-track-gray-200">
           {searchData && !loading ? (
             searchData.map((coin) => (
               <li
@@ -71,7 +71,7 @@ const SearchInput = ({ handleSearch }) => {
           )}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 

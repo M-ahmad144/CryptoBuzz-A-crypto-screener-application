@@ -4,13 +4,16 @@ import { CryptoContext } from "../context/CryptoContext";
 
 export default function Sorting() {
   let { setSortBy, resetFuntion } = useContext(CryptoContext);
+
   const handelSort = (e) => {
     e.preventDefault();
     let val = e.target.value;
     setSortBy(val);
   };
+
   return (
-    <>
+    <div className="sm:flex hidden min:hidden">
+      {/* This component will be hidden on small screens and shown on screens larger than small */}
       <label
         className="relative flex justify-center items-center"
         htmlFor="sortSelect"
@@ -66,6 +69,6 @@ export default function Sorting() {
           </svg>
         </button>
       </div>
-    </>
+    </div>
   );
 }
