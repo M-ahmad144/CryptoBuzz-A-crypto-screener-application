@@ -70,7 +70,7 @@ export default function CryptoDataDetails() {
           <div className="flex justify-between items-center p-4 w-full h-full">
             {/* left div */}
 
-            <div className="flex flex-col m-3 w-full md:w-[45%] h-full">
+            <div class="md:flex flex-col hidden w-full md:w-[45%]">
               {/* image ,name ,symbol */}
               <div className="flex md:flex-row flex-col md:items-center w-full">
                 <img
