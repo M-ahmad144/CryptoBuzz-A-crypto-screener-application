@@ -17,7 +17,7 @@ const TrendingCoin = ({ data }) => {
         <>
           {/* name and image */}
           <h3 className="flex flex-wrap items-center my-1 text-sm sm:text-base">
-            <span className="text-gray-200 capitalize">name:&nbsp;</span>
+            <span className="text-gray-100 capitalize">name:&nbsp;</span>
             <span className="text-cyan">{data.name}</span>
             <img
               src={data.small}
@@ -27,14 +27,14 @@ const TrendingCoin = ({ data }) => {
           </h3>
           {/* mark up rank */}
           <h3 className="flex flex-wrap items-center my-1 text-sm sm:text-base">
-            <span className="text-gray-200 capitalize">
+            <span className="text-gray-100 capitalize">
               market cap rank:&nbsp;
             </span>
             <span className="text-cyan">{data.market_cap_rank}</span>
           </h3>
           {/* price in btc */}
           <h3 className="flex flex-wrap items-center my-1 text-sm sm:text-base">
-            <span className="text-gray-200 capitalize">
+            <span className="text-gray-100 capitalize">
               price (in btc):&nbsp;
             </span>
             <span className="text-cyan">
@@ -47,7 +47,7 @@ const TrendingCoin = ({ data }) => {
           </h3>
           {/* score */}
           <h3 className="flex flex-wrap items-center my-1 text-sm sm:text-base">
-            <span className="text-gray-200 capitalize">score:&nbsp;</span>
+            <span className="text-gray-100 capitalize">score:&nbsp;</span>
             <span className="text-cyan">{data.score}</span>
           </h3>
           {/* large image */}
